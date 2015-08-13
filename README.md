@@ -47,7 +47,30 @@ module.exports.cron = {
     onComplete: function() {
       console.log('I am triggering when job is complete');
     },
-    timezone: 'Ukraine/Kiev'
+    start: true, // Start task immediately
+    timezone: 'Ukraine/Kiev', // Custom timezone
+    context: undefined // Custom context
+  }
+};
+```
+
+It can be started manually:
+
+```javascript
+// config/cron.js
+module.exports.cron = {
+  '* * * * * *': {
+    onTick: function() {
+      console.log('I am triggering when time is come');
+    },
+    start: false
+  }
+};
+
+// api/controllers/SomeController.js
+module.exports = {
+  someAction: function(req, res) {
+    sails.hooks.cron.jobs['* * * * * *'].start();
   }
 };
 ```
