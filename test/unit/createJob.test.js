@@ -11,7 +11,9 @@ describe('sails-hook-cron::createJob', function () {
       cronTime: '* * * * * *',
       onTick: console.log.bind(console, 'onTick'),
       onComplete: console.log.bind(console, 'onComplete'),
-      timezone: 'Europe/Kiev'
+      start: true,
+      timezone: 'Europe/Kiev',
+      context: undefined
     });
 
     assert.isObject(job.cronTime);
