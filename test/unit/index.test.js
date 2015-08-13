@@ -1,15 +1,29 @@
+var assert = require('chai').assert;
 var Sails = require('sails').Sails;
 
-describe('sails-hook-cron', function () {
+describe('sails-hook-cron::main', function () {
   var sails;
 
   before(function (done) {
     this.timeout(10000);
 
     Sails().lift({
+      cron: {
+        '* * * * * 1': console.log,
+        '* * * * * 2': {
+          onTick: console.log,
+          onComplete: console.log,
+          timezone: 'Europe/Kiev'
+        }
+      },
       hooks: {
         "cron": require('../../'),
-        "grunt": false
+        "csrf": false,
+        "grunt": false,
+        "i18n": false,
+        "pubsub": false,
+        "session": false,
+        "views": false
       }
     }, function (error, _sails) {
       if (error) return done(error);
@@ -22,7 +36,11 @@ describe('sails-hook-cron', function () {
     return sails ? sails.lower(done) : done();
   });
 
-  it('sails does not crash', function () {
-    return true;
+  it('Should properly load cron hook', function () {
+    assert.isObject(sails.config.cron);
+    assert.isObject(sails.hooks.cron);
+  });
+
+  it('Should properly load cron task with function declaration', function () {
   });
 });
