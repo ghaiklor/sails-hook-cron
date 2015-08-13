@@ -12,6 +12,46 @@ Install it via npm:
 npm install sails-hook-cron
 ```
 
+And configure `config/cron.js` file in your project:
+
+```javascript
+module.exports.cron = {
+  '* * * * * *': function onTick() {
+    console.log('You will see this every second');
+  }
+};
+```
+
+## Examples
+
+You can pass different formats of cron tasks.
+
+Just cron pattern with callback when cron task is executing:
+
+```javascript
+module.exports.cron = {
+  '* * * * * *': function onTick() {
+    console.log('You will see this every second');
+  }
+};
+```
+
+It can be cron pattern with object:
+
+```javascript
+module.exports.cron = {
+  '* * * * * *': {
+    onTick: function() {
+      console.log('I am triggering when time is come');
+    },
+    onComplete: function() {
+      console.log('I am triggering when job is complete');
+    },
+    timezone: 'Ukraine/Kiev'
+  }
+};
+```
+
 ## License
 
 The MIT License (MIT)
