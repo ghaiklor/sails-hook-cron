@@ -41,6 +41,8 @@ describe('sails-hook-cron::main', function () {
     assert.isObject(sails.hooks.cron);
   });
 
-  it('Should properly load cron task with function declaration', function () {
+  it('Should properly load cron tasks', function () {
+    assert.isUndefined(sails.hooks.cron.jobs['* * * * * 1'].onComplete);
+    assert.isFunction(sails.hooks.cron.jobs['* * * * * 2'].onComplete);
   });
 });
