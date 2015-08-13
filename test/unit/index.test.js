@@ -1,8 +1,28 @@
-var assert = require('chai').assert;
-var index = require('../../index');
+var Sails = require('sails').Sails;
 
-describe('Entry Point', function () {
-  it('Should properly export', function () {
-    assert.isObject(index);
+describe('sails-hook-cron', function () {
+  var sails;
+
+  before(function (done) {
+    this.timeout(10000);
+
+    Sails().lift({
+      hooks: {
+        "cron": require('../'),
+        "grunt": false
+      }
+    }, function (error, _sails) {
+      if (error) return done(error);
+      sails = _sails;
+      return done();
+    });
+  });
+
+  after(function (done) {
+    return sails ? sails.lower(done) : done();
+  });
+
+  it('sails does not crash', function () {
+    return true;
   });
 });
