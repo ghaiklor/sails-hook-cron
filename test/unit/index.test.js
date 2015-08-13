@@ -8,7 +8,7 @@ describe('sails-hook-cron', function () {
 
     Sails().lift({
       hooks: {
-        "cron": require('../'),
+        "cron": require('../../'),
         "grunt": false
       }
     }, function (error, _sails) {
