@@ -1,0 +1,33 @@
+{
+  "name": "sails-hook-cron",
+  "version": "0.1.0",
+  "description": "Sails hook for running tasks by cron",
+  "license": "MIT",
+  "main": "index.js",
+  "author": "ghaiklor",
+  "sails": {
+    "isHook": true
+  },
+  "scripts": {
+    "test": "istanbul cover _mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghaiklor/sails-hook-cron.git"
+  },
+  "keywords": [
+    "sails",
+    "hook",
+    "cron"
+  ],
+  "bugs": {
+    "url": "https://github.com/ghaiklor/sails-hook-cron/issues"
+  },
+  "homepage": "https://github.com/ghaiklor/sails-hook-cron#readme",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5",
+    "sinon": "^1.15.4"
+  }
+}
