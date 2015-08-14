@@ -16,31 +16,43 @@ And configure `config/cron.js` file in your project:
 
 ```javascript
 module.exports.cron = {
-  '* * * * * *': function onTick() {
-    console.log('You will see this every second');
+  myFirstJob: {
+    schedule: '* * * * * *',
+    onTick: function () {
+      console.log('You will see this every second');
+    }
   }
 };
 ```
 
 ## Examples
 
-You can pass different formats of cron tasks.
-
-Just cron pattern with callback when cron task is executing:
+You can define cron tasks only with required fields:
 
 ```javascript
 module.exports.cron = {
-  '* * * * * *': function onTick() {
-    console.log('You will see this every second');
+  firstJob: {
+    schedule: '* * * * * *',
+    onTick: function() {
+      console.log('I am triggering every second');
+    }
+  },
+
+  secondJob: {
+    schedule: '*/5 * * * *',
+    onTick: function() {
+      console.log('I am triggering every five seconds');
+    }
   }
 };
 ```
 
-It can be cron pattern with object:
+You can define advanced fields:
 
 ```javascript
 module.exports.cron = {
-  '* * * * * *': {
+  myJob: {
+    schedule: '* * * * * *',
     onTick: function() {
       console.log('I am triggering when time is come');
     },
@@ -49,17 +61,18 @@ module.exports.cron = {
     },
     start: true, // Start task immediately
     timezone: 'Ukraine/Kiev', // Custom timezone
-    context: undefined // Custom context
+    context: undefined // Custom context for onTick callback
   }
 };
 ```
 
-It can be started manually:
+You can get created jobs and start\stop them when you wish:
 
 ```javascript
 // config/cron.js
 module.exports.cron = {
-  '* * * * * *': {
+  myJob: {
+    schedule: '* * * * * *',
     onTick: function() {
       console.log('I am triggering when time is come');
     },
@@ -70,7 +83,8 @@ module.exports.cron = {
 // api/controllers/SomeController.js
 module.exports = {
   someAction: function(req, res) {
-    sails.hooks.cron.jobs['* * * * * *'].start();
+    sails.hooks.cron.jobs.myJob.start();
+    sails.hooks.cron.jobs.myJob.stop();
   }
 };
 ```
