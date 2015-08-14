@@ -9,8 +9,12 @@ describe('sails-hook-cron::main', function () {
 
     Sails().lift({
       cron: {
-        '* * * * * 1': console.log,
-        '* * * * * 2': {
+        firstJob: {
+          schedule: '* * * * * 1',
+          onTick: console.log
+        },
+        secondJob: {
+          schedule: '* * * * * 2',
           onTick: console.log,
           onComplete: console.log,
           start: false,
@@ -44,8 +48,8 @@ describe('sails-hook-cron::main', function () {
   });
 
   it('Should properly load cron tasks', function () {
-    var firstJob = sails.hooks.cron.jobs['* * * * * 1'];
-    var secondJob = sails.hooks.cron.jobs['* * * * * 2'];
+    var firstJob = sails.hooks.cron.jobs.firstJob;
+    var secondJob = sails.hooks.cron.jobs.secondJob;
 
     assert.isUndefined(firstJob.onComplete);
     assert.equal(firstJob.cronTime.source, '* * * * * 1');
