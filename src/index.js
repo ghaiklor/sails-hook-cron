@@ -1,18 +1,18 @@
-var createJob = require('./createJob');
+import { CronJob } from 'cron';
 
-module.exports = function (sails) {
+export default function (sails) {
   return {
     jobs: {},
 
     defaults: {cron: {}},
 
     initialize: function (cb) {
-      var config = sails.config.cron;
-      var jobs = Object.keys(config);
+      let config = sails.config.cron;
+      let jobs = Object.keys(config);
 
-      sails.on('ready', function () {
-        jobs.forEach(function (name) {
-          this.jobs[name] = createJob({
+      sails.on('ready', () => {
+        jobs.forEach(name => {
+          this.jobs[name] = new CronJob({
             cronTime: config[name].schedule,
             onTick: config[name].onTick,
             onComplete: config[name].onComplete,
@@ -20,10 +20,10 @@ module.exports = function (sails) {
             timezone: config[name].timezone,
             context: config[name].context
           });
-        }.bind(this));
-      }.bind(this));
+        });
+      });
 
       cb();
     }
   };
-};
+}
