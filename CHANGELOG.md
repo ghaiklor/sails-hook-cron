@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.0
+
+- Migration from ES5 to ES6 syntax;
+- Update dependencies and pin them;
+
 ## 2.0.0
 
 - Improvement: Implement named jobs. Now you able to set name for job, not a schedule;
