@@ -23,7 +23,7 @@ describe('sails-hook-cron::main', () => {
         }
       },
       hooks: {
-        "cron": require('../../'),
+        "cron": require('../../src/index'),
         "csrf": false,
         "grunt": false,
         "i18n": false,
