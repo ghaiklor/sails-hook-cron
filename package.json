@@ -3,12 +3,14 @@
   "version": "2.0.0",
   "description": "Sails hook for running tasks by cron",
   "license": "MIT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "author": "ghaiklor",
   "sails": {
     "isHook": true
   },
   "scripts": {
+    "compile": "babel src --out-dir lib",
+    "prepublish": "npm run compile",
     "test": "istanbul cover _mocha"
   },
   "repository": {
@@ -25,6 +27,7 @@
   },
   "homepage": "https://github.com/ghaiklor/sails-hook-cron#readme",
   "devDependencies": {
+    "babel": "5.8.23",
     "chai": "3.3.0",
     "istanbul": "0.3.21",
     "mocha": "2.3.3",
