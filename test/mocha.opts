@@ -1,2 +1,4 @@
-./test/bootstrap.test.js
 ./test/unit/**/*.test.js
+--require babelhook.js
+--reporter nyan
+--recursive
