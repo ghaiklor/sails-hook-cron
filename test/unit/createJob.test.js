@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var createJob = require('../../lib/createJob');
+var createJob = require('.././createJob');
 
 describe('sails-hook-cron::createJob', function () {
   it('Should properly export', function () {
