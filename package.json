@@ -25,13 +25,13 @@
   },
   "homepage": "https://github.com/ghaiklor/sails-hook-cron#readme",
   "devDependencies": {
-    "chai": "^3.2.0",
-    "istanbul": "^0.3.17",
-    "mocha": "^2.2.5",
-    "sails": "^0.11.0",
-    "sinon": "^1.15.4"
+    "chai": "3.3.0",
+    "istanbul": "0.3.21",
+    "mocha": "2.3.3",
+    "sails": "0.11.2",
+    "sinon": "1.17.1"
   },
   "dependencies": {
-    "cron": "^1.0.9"
+    "cron": "1.0.9"
   }
 }
