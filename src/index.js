@@ -11,14 +11,14 @@ export default function (sails) {
       let jobs = Object.keys(config);
 
       sails.on('ready', () => {
-        jobs.forEach(name => {
-          this.jobs[name] = new CronJob({
-            cronTime: config[name].schedule,
-            onTick: config[name].onTick,
-            onComplete: config[name].onComplete,
-            start: typeof config[name].start === 'boolean' ? config[name].start : true,
-            timezone: config[name].timezone,
-            context: config[name].context
+        jobs.forEach(job => {
+          this.jobs[job] = new CronJob({
+            cronTime: config[job].schedule,
+            onTick: config[job].onTick,
+            onComplete: config[job].onComplete,
+            start: typeof config[job].start === 'boolean' ? config[job].start : true,
+            timezone: config[job].timezone,
+            context: config[job].context
           });
         });
       });
