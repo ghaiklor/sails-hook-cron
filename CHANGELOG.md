@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.1
+
+- General improvements;
+
 ## 2.1.0
 
 - Migration from ES5 to ES6 syntax;
