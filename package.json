@@ -28,7 +28,7 @@
   "homepage": "https://github.com/ghaiklor/sails-hook-cron#readme",
   "devDependencies": {
     "babel": "5.8.23",
-    "chai": "3.3.0",
+    "chai": "3.4.0",
     "istanbul": "0.4.0",
     "mocha": "2.3.3",
     "sails": "0.11.2",
