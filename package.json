@@ -1,6 +1,5 @@
 {
   "name": "sails-hook-cron",
-  "version": "2.1.1",
   "description": "Sails hook for running tasks by cron",
   "license": "MIT",
   "main": "lib/index.js",
@@ -11,11 +10,12 @@
   "scripts": {
     "compile": "babel src --out-dir lib",
     "prepublish": "npm run compile",
-    "test": "istanbul cover _mocha"
+    "test": "istanbul cover _mocha",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ghaiklor/sails-hook-cron.git"
+    "url": "https://github.com/ghaiklor/sails-hook-cron.git"
   },
   "keywords": [
     "sails",
@@ -27,14 +27,28 @@
   },
   "homepage": "https://github.com/ghaiklor/sails-hook-cron#readme",
   "devDependencies": {
-    "babel": "6.0.15",
+    "babel": "^.8.29",
     "chai": "3.4.0",
-    "istanbul": "0.4.0",
+    "coveralls": "2.11.4",
+    "cz-conventional-changelog": "1.1.4",
+    "isparta": "3.5.0",
     "mocha": "2.3.3",
     "sails": "0.11.2",
+    "semantic-release": "4.3.5",
     "sinon": "1.17.2"
   },
   "dependencies": {
     "cron": "1.0.9"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "tag": "latest"
+  },
+  "release": {
+    "branch": "master"
   }
 }
