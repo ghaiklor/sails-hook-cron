@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/ghaiklor/sails-hook-cron#readme",
   "devDependencies": {
-    "babel-cli": "6.4.0",
+    "babel-cli": "6.4.5",
     "babel-plugin-add-module-exports": "0.1.2",
     "babel-preset-es2015-node4": "2.0.2",
     "chai": "3.4.1",
