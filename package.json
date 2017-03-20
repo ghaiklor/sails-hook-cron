@@ -39,7 +39,7 @@
     "mocha": "3.2.0",
     "sails": "0.12.12",
     "semantic-release": "6.3.2",
-    "sinon": "2.0.0-pre.6"
+    "sinon": "2.0.0"
   },
   "dependencies": {
     "cron": "1.1.1"
