@@ -36,7 +36,7 @@
     "coveralls": "2.13.0",
     "cz-conventional-changelog": "1.2.0",
     "isparta": "4.0.0",
-    "mocha": "3.2.0",
+    "mocha": "3.3.0",
     "sails": "0.12.12",
     "semantic-release": "6.3.2",
     "sinon": "2.0.0"
