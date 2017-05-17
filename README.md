@@ -38,6 +38,25 @@ module.exports.cron = {
 
 ## Examples
 
+Schedule field syntax is:
+
+```javascript
+
+// ['seconds', 'minutes', 'hours', 'dayOfMonth', 'month', 'dayOfWeek']
+
+module.exports.cron = {
+  firstJob: {
+    schedule: '30 47 15 17 may *',
+    // in May 17 15:47:30 GMT-0300 (BRT)
+    onTick: function() {
+      console.log('I will trigger in May 17 15:47:30');
+    },
+    timezone: 'America/Sao_Paulo'
+    // timezone Brazil example
+  }
+};
+```
+
 You can define cron tasks only with required fields:
 
 ```javascript
