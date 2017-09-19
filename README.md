@@ -69,7 +69,7 @@ module.exports.cron = {
   },
 
   secondJob: {
-    schedule: '*/5 * * * *',
+    schedule: '*/5 * * * * *',
     onTick: function() {
       console.log('I am triggering every five seconds');
     }
