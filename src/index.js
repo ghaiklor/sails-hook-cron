@@ -19,7 +19,7 @@ export default function (sails) {
             typeof config[job].start === 'boolean' ? config[job].start : true,
             config[job].timezone,
             config[job].context,
-            typeof config[job].runOnInit === 'boolean' ? config[job].runOnInit : true
+            typeof config[job].runOnInit === 'boolean' ? config[job].runOnInit : false
           );
         });
       });
