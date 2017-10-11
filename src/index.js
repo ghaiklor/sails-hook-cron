@@ -1,14 +1,14 @@
-import { CronJob } from 'cron';
+const { CronJob } = require('cron');
 
-export default function (sails) {
+module.exports = function (sails) {
   return {
     jobs: {},
 
-    defaults: {cron: {}},
+    defaults: { cron: {} },
 
     initialize: function (cb) {
-      let config = sails.config.cron;
-      let jobs = Object.keys(config);
+      const config = sails.config.cron;
+      const jobs = Object.keys(config);
 
       sails.on('ready', () => {
         jobs.forEach(job => {
@@ -27,4 +27,4 @@ export default function (sails) {
       cb();
     }
   };
-}
+};

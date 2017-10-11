@@ -1,5 +1,5 @@
-import { assert } from 'chai';
-import { Sails } from 'sails';
+const { assert } = require('chai');
+const { Sails } = require('sails');
 
 describe('sails-hook-cron::main', () => {
   let sails;
@@ -38,7 +38,13 @@ describe('sails-hook-cron::main', () => {
     });
   });
 
-  after(done => sails ? sails.lower(done) : done());
+  after(function (done) {
+    this.timeout(10000);
+
+    sails.lower(function () {
+      done();
+    });
+  });
 
   it('Should properly load cron hook', () => {
     assert.isObject(sails.config.cron);
