@@ -91,7 +91,8 @@ module.exports.cron = {
     },
     start: true, // Start task immediately
     timezone: 'Ukraine/Kiev', // Custom timezone
-    context: undefined // Custom context for onTick callback
+    context: undefined, // Custom context for onTick callback
+    runOnInit: true // Will fire your onTick function as soon as the requisit initialization has happened.
   }
 };
 ```
