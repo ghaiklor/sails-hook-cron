@@ -1,12 +1,10 @@
 const { assert } = require('chai');
 const { Sails } = require('sails');
 
-describe('sails-hook-cron::main', () => {
+describe('sails-hook-cron', () => {
   let sails;
 
   before(function (done) {
-    this.timeout(10000);
-
     Sails().lift({
       cron: {
         firstJob: {
@@ -39,9 +37,8 @@ describe('sails-hook-cron::main', () => {
   });
 
   after(function (done) {
-    this.timeout(10000);
-
-    sails.lower(function () {
+    sails.lower(function (error) {
+      if (error) return done(error);
       done();
     });
   });
