@@ -34,7 +34,7 @@
     "istanbul": "0.4.5",
     "mocha": "5.0.2",
     "sails": "0.12.14",
-    "semantic-release": "15.0.3",
+    "semantic-release": "15.1.3",
     "sinon": "4.4.7"
   },
   "dependencies": {
