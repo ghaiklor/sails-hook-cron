@@ -32,13 +32,13 @@
     "coveralls": "3.0.3",
     "cz-conventional-changelog": "2.1.0",
     "istanbul": "0.4.5",
-    "mocha": "5.2.0",
+    "mocha": "6.1.0",
     "sails": "1.2.0",
     "semantic-release": "15.13.0",
-    "sinon": "7.2.4"
+    "sinon": "7.3.0"
   },
   "dependencies": {
-    "cron": "1.7.0"
+    "cron": "1.7.1"
   },
   "config": {
     "commitizen": {
