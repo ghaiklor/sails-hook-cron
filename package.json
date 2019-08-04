@@ -35,7 +35,7 @@
     "mocha": "6.1.0",
     "sails": "1.2.0",
     "semantic-release": "15.13.16",
-    "sinon": "7.3.0"
+    "sinon": "7.4.0"
   },
   "dependencies": {
     "cron": "1.7.1"
