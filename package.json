@@ -38,7 +38,7 @@
     "sinon": "7.4.2"
   },
   "dependencies": {
-    "cron": "1.7.1"
+    "cron": "1.7.2"
   },
   "config": {
     "commitizen": {
