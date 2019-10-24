@@ -36,6 +36,8 @@ module.exports.cron = {
 };
 ```
 
+_NOTE: if you need access to `sails` global object, try to move your cron configuration to local configuration (`local.js`)._
+
 ## Examples
 
 Schedule field syntax is:
