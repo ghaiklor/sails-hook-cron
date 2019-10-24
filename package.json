@@ -32,7 +32,7 @@
     "coveralls": "3.0.7",
     "cz-conventional-changelog": "2.1.0",
     "istanbul": "0.4.5",
-    "mocha": "6.2.0",
+    "mocha": "6.2.1",
     "sails": "1.2.0",
     "semantic-release": "15.13.17",
     "sinon": "7.4.2"
