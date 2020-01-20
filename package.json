@@ -35,6 +35,6 @@
     "sinon": "8.1.0"
   },
   "dependencies": {
-    "cron": "1.7.2"
+    "cron": "1.8.1"
   }
 }
