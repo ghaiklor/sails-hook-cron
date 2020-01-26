@@ -30,7 +30,7 @@
     "chai": "4.2.0",
     "coveralls": "3.0.8",
     "istanbul": "0.4.5",
-    "mocha": "6.2.2",
+    "mocha": "7.0.1",
     "sails": "1.2.3",
     "sinon": "8.1.0"
   },
