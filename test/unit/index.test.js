@@ -2,10 +2,14 @@ const { assert } = require('chai');
 const { Sails } = require('sails');
 
 describe('sails-hook-cron', () => {
+
   let sails;
 
   before(function (done) {
+    this.timeout(10000);
+
     Sails().lift({
+      log: {level: 'verbose'},
       cron: {
         firstJob: {
           schedule: '* * * * * 1',
@@ -18,6 +22,15 @@ describe('sails-hook-cron', () => {
           start: false,
           timezone: 'Europe/Kiev',
           context: undefined
+        },
+        sailsJob: {
+          schedule: '* * * * * *',
+          onTick: function() {
+            console.log("Executing onTick from Sails Cron Job");
+            this.config.sailsWorks = true;
+          },
+          onComplete: console.log,
+          start: true
         }
       },
       hooks: {
@@ -32,7 +45,9 @@ describe('sails-hook-cron', () => {
     }, (error, _sails) => {
       if (error) return done(error);
       sails = _sails;
-      return done();
+
+      setTimeout(function(){ return done()}, 5000);
+      // return done();
     });
   });
 
@@ -61,5 +76,12 @@ describe('sails-hook-cron', () => {
     assert.equal(secondJob.cronTime.source, '* * * * * 1');
     assert.equal(secondJob.cronTime.zone, 'Europe/Kiev');
     assert.notOk(secondJob.running);
+  });
+
+  it('Should properly load SailsJS', () => {
+    const sailsJob = sails.hooks.cron.jobs.sailsJob;
+
+    assert.isObject(sailsJob);
+    assert.ok(sails.config.sailsWorks);
   });
 });

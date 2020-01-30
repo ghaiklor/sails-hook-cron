@@ -10,6 +10,8 @@ module.exports = function (sails) {
       const config = sails.config.cron;
       const jobs = Object.keys(config);
 
+      console.log("Jobs: ", jobs.length);
+
       sails.on('ready', () => {
         jobs.forEach(job => {
           this.jobs[job] = new CronJob(
@@ -18,7 +20,7 @@ module.exports = function (sails) {
             config[job].onComplete,
             typeof config[job].start === 'boolean' ? config[job].start : true,
             config[job].timezone,
-            config[job].context,
+            config[job].context || sails,
             typeof config[job].runOnInit === 'boolean' ? config[job].runOnInit : false
           );
         });
