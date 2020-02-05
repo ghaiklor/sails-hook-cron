@@ -27,12 +27,11 @@ module.exports.cron = {
     schedule: '* * * * * *',
     onTick: function () {
       console.log('You will see this every second');
+      console.log(`Also, sails object is available as this, e.g. ${this.config.environment}`);
     }
   }
 };
 ```
-
-_NOTE: if you need access to `sails` global object, try to move your cron configuration to local configuration (`local.js`)._
 
 ## Examples
 
