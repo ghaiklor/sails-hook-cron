@@ -18,6 +18,12 @@ describe('sails-hook-cron', () => {
           start: false,
           timezone: 'Europe/Kiev',
           context: undefined
+        },
+        contextJob: {
+          schedule: '* * * * * *',
+          runOnInit: true,
+          onTick: function () { assert.isObject(this.config); },
+          onComplete: function () { assert.isObject(this.config); }
         }
       },
       hooks: {
@@ -51,6 +57,7 @@ describe('sails-hook-cron', () => {
   it('Should properly load cron tasks', () => {
     const firstJob = sails.hooks.cron.jobs.firstJob;
     const secondJob = sails.hooks.cron.jobs.secondJob;
+    const contextJob = sails.hooks.cron.jobs.contextJob;
 
     assert.isUndefined(firstJob.onComplete);
     assert.equal(firstJob.cronTime.source, '* * * * * 1');
@@ -61,5 +68,7 @@ describe('sails-hook-cron', () => {
     assert.equal(secondJob.cronTime.source, '* * * * * 1');
     assert.equal(secondJob.cronTime.zone, 'Europe/Kiev');
     assert.notOk(secondJob.running);
+
+    assert.equal(contextJob.cronTime.source, '* * * * * *');
   });
 });
