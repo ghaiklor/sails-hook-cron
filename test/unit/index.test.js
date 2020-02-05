@@ -22,8 +22,8 @@ describe('sails-hook-cron', () => {
         contextJob: {
           schedule: '* * * * * *',
           runOnInit: true,
-          onTick: function () { assert.isObject(this.config); },
-          onComplete: function () { assert.isObject(this.config); }
+          onTick: function () { assert.equal(this.config.environment, 'development'); },
+          onComplete: function () { assert.equal(this.config.environment, 'development'); }
         }
       },
       hooks: {
