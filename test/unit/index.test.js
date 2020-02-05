@@ -21,13 +21,13 @@ describe('sails-hook-cron', () => {
         }
       },
       hooks: {
-        "cron": require('../../src/index'),
-        "csrf": false,
-        "grunt": false,
-        "i18n": false,
-        "pubsub": false,
-        "session": false,
-        "views": false
+        cron: require('../../src/index'),
+        csrf: false,
+        grunt: false,
+        i18n: false,
+        pubsub: false,
+        session: false,
+        views: false
       }
     }, (error, _sails) => {
       if (error) return done(error);
@@ -49,8 +49,8 @@ describe('sails-hook-cron', () => {
   });
 
   it('Should properly load cron tasks', () => {
-    let firstJob = sails.hooks.cron.jobs.firstJob;
-    let secondJob = sails.hooks.cron.jobs.secondJob;
+    const firstJob = sails.hooks.cron.jobs.firstJob;
+    const secondJob = sails.hooks.cron.jobs.secondJob;
 
     assert.isUndefined(firstJob.onComplete);
     assert.equal(firstJob.cronTime.source, '* * * * * 1');
