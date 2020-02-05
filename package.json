@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-cron",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Sails hook for running tasks by cron",
   "license": "MIT",
   "main": "src/index.js",
