@@ -39,7 +39,7 @@
     "istanbul": "0.4.5",
     "mocha": "7.0.1",
     "sails": "1.2.3",
-    "sinon": "8.1.1"
+    "sinon": "9.0.0"
   },
   "dependencies": {
     "cron": "1.8.2"
