@@ -18,7 +18,7 @@ module.exports = function (sails) {
             config[job].onComplete,
             typeof config[job].start === 'boolean' ? config[job].start : true,
             config[job].timezone,
-            config[job].hasOwnProperty('context') ? config[job].context : sails,
+            Object.prototype.hasOwnProperty.call(config[job], 'context') ? config[job].context : sails,
             typeof config[job].runOnInit === 'boolean' ? config[job].runOnInit : false
           );
         });

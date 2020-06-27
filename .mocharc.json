@@ -1,5 +1,5 @@
 {
-  "spec": "./test/unit/**/*.test.js",
+  "spec": "test/**/*.test.js",
   "reporter": "spec",
   "recursive": true,
   "exit": true

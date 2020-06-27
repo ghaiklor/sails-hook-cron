@@ -119,11 +119,11 @@ module.exports = {
 
 ## Context
 
-There are three states for the context, i.e. this on onTick call. 
+There are three states for the context, i.e. this on `onTick` call:
 
-1. **If you don't declare context:** this = sails
-2. **If you declare `context = null`:** this = original cron's library context. You still have access to sails from global variable.
-3. **If you declare `context = {<any_object>}`:** this = {any_object} (as we expect)
+- When you don’t declare context - `this` points to the Sails object.
+- If you declare it as a null (`context: null`), `this` points to the original context from the cron library.
+- Otherwise, if you declare a context with some object (`context: {foo: 'bar'}`), `this` will point to the object instead.
 
 ## License
 
