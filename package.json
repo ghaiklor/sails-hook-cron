@@ -45,7 +45,7 @@
     "eslint-plugin-standard": "4.0.1",
     "istanbul": "0.4.5",
     "mocha": "10.0.0",
-    "sails": "1.5.3",
+    "sails": "1.5.4",
     "sinon": "9.0.2"
   },
   "dependencies": {
